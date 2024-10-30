@@ -6,7 +6,6 @@ from django.contrib.auth.decorators import login_required
 import requests
 import numpy as np
 import pandas as pd
-from sklearn.ensemble import RandomForestClassifier
 
 from predictor.forms import HeartDiseaseForm
 from .models import model  # Import the loaded model  
