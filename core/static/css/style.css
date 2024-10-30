@@ -1,0 +1,531 @@
+html, body {
+    width: 100%;
+    margin: 0px;
+  }
+  
+  html {
+    background: #eeecec;
+    overflow-x: hidden;
+  }
+  
+  #container {
+    z-index: 111;
+  }
+  
+  
+  .navT {
+    -webkit-transition: all 0.25s;
+    z-index: 111;
+    cursor: pointer;
+    width: 100%;
+    background: #212121;
+    height: 65px;
+    left: 0;
+    top: 0;
+    position: fixed;
+  }
+  .navT .icon {
+    -webkit-transition: all 0.25s;
+    position: absolute;
+    width: 30px;
+    height: 1px;
+    left: 15px;
+    top: 30px;
+    background-color: white;
+  }
+  .navT .icon:before, .navT .icon:after {
+    -webkit-transition: all 0.25s;
+    width: 30px;
+    height: 1px;
+    left: 0;
+    background: white;
+    position: absolute;
+    content: "";
+  }
+  .navT .icon:before {
+    top: -10px;
+  }
+  .navT .icon:after {
+    top: 10px;
+  }
+  .navT:hover {
+    background: black;
+  }
+  .navT:hover .icon:before {
+    top: -12px;
+  }
+  .navT:hover .icon:after {
+    top: 12px;
+  }
+  .navT.active .icon {
+    -webkit-transform: rotate(180deg);
+    background-color: transparent;
+    left: 10px;
+  }
+  .navT.active .icon:before, .navT.active .icon:after {
+    top: 0;
+  }
+  .navT.active .icon:before {
+    -webkit-transform: rotate(45deg);
+  }
+  .navT.active .icon:after {
+    -webkit-transform: rotate(-45deg);
+  }
+  
+  #menu {
+    z-index: 111;
+    -webkit-transition: all 0.5s;
+    text-align: center;
+    position: fixed;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: 65px;
+    font-size: 18px;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    width: 100%;
+    height: 0;
+    border-bottom: 1px solid transparent;
+    overflow: hidden;
+  }
+  #menu ul {
+    list-style: none;
+    padding: 0;
+    letter-spacing: 0.4em;
+    margin-top: 15px;
+  }
+  #menu li:first-child {
+    margin-top: 0;
+  }
+  #menu li {
+    -webkit-transition: all 0.2s;
+    margin-top: 20px;
+    padding: 2px 0;
+    color: rgb(255, 255, 255);
+  }
+  #menu a {
+    padding: 8px;
+    -webkit-transition: all 0.25s;
+    cursor: pointer;
+    color: #ffffff;
+    text-decoration: none;
+  }
+  #menu a:hover {
+    letter-spacing: 0.5em;
+    text-decoration: underline;
+  }
+  #menu.open {
+    height: 315px;
+    width: 100%;
+    background: linear-gradient(135deg, #4a06b0, #510303);
+    border-bottom: 1px solid black;
+  }
+  #CC{ 
+    /*font-size: 48px;  Adjust font size as needed */  
+    font-weight: bold; /* Optional: make the font bold */  
+    
+    background: linear-gradient(270deg, #ff0000, #00ff00, #0000ff); /* Three colors for the gradient */  
+    background-size: 600% 600%; /* Increase the size for animation effect */  
+    -webkit-background-clip: text; /* Clip the background to the text */  
+    -webkit-text-fill-color: transparent; /* Make the original text color transparent */  
+    
+    animation: gradient-animation 5s ease infinite; /* Animation name, duration, and type */  
+}  
+
+@keyframes gradient-animation {  
+    0% { background-position: 0% 50%; }  
+    50% { background-position: 100% 50%; }  
+    100% { background-position: 0% 50%; }
+  }
+  .space {
+    letter-spacing: 0;
+  }
+  
+  .content {
+    width: 100%;
+    font-size: 20px;
+    font-family: sans-serif;
+    font-weight: 100;
+    -webkit-transition: top 0.5s;
+    position: absolute;
+    top: 65px;
+    margin: 0 auto;
+  }
+  .content h1 {
+    font-size: 3em;
+    text-transform: uppercase;
+    margin-top: 85px;
+    margin-left: 10px;
+  }
+  .content h2 {
+    font-size: 1em;
+    text-transform: uppercase;
+    margin-top: -25px;
+    margin-left: 10px;
+    font-weight: 400;
+    letter-spacing: 0.7em;
+  }
+  .content h3{
+    font-size: 1em;
+    text-transform: uppercase;
+    margin-top: -25px;
+    margin-left: 24%;
+    font-weight: 1000;
+
+  }
+  .content.shift {
+    top: 335px;
+  }
+  .ok{
+    margin-top: 50px;
+  }
+  #pulse{
+    
+     
+   }  
+  
+  p {
+    max-width: 600px;
+    font-size: 0.75em;
+    line-height: 1.75em;
+    text-align: left;
+    margin-left: 10px;
+  }
+  
+  #second {
+    left: 0;
+    width: 100%;
+    background: #999;
+    height: 800px;
+    margin-top: 200px;
+    text-align: center;
+  }
+  #second h1, #second h2 {
+    margin-right: 20px;
+  }
+  #second h1 {
+    padding-top: 40px;
+  }
+  #second p {
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+  
+  #third {
+    background: black;
+    width: 100%;
+    height: 600px;
+    padding-top: 50px;
+  }
+  #third h2 {
+    color: white;
+    text-align: center;
+    margin-top: 50px;
+  }
+  #third h5 {
+    color: white;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    font-weight: 200;
+    letter-spacing: 0.25em;
+    text-align: center;
+  }
+  #third h6{
+    color: #ffffff;
+    text-align: center;;
+  }
+  #bar {  
+    background: linear-gradient(135deg, #4a06b0, #510303); /* Gradient Background */  
+    width:40%;  
+    height:200px;  
+    margin:0 auto;  
+    border-radius:10px; /* Rounded corners */  
+    box-shadow:04px20px rgba(0,0,0,0.5); /* Subtle shadow for depth */  
+    display: flex; /* Flex layout for content alignment */  
+    align-items: center; /* Center content vertically */  
+    justify-content: center; /* Center content horizontally */  
+    color: #ffffff; /* Text color */  
+    font-size:1.5em; /* Larger font size */  
+    text-align: center; /* Center text alignment */ 
+    
+    } 
+ .heartCheckAnchor{
+    padding: 8px;
+    -webkit-transition: all 0.25s;
+    cursor: pointer;
+    color: #ffffff;
+    text-decoration: none;
+ }
+ .heartCheckAnchor :hover{
+  letter-spacing: 0.5em;
+  text-decoration: underline;
+ }
+
+
+
+  /* css for heart.html */
+
+
+
+
+
+  .form-container {
+    max-width:800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #eeecec;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.0);
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+  .input-hint {
+    margin-left: 10px; /* مسافة بين الحقل وتلميح المجال */
+    color: #777;
+    font-size: 0.9em;
+    white-space: nowrap;
+}
+    .form-group {
+    display: flex;
+    align-items: center; /* لجعل العناصر تتوسط عموديًا */
+    margin-bottom: 15px; /* مسافة بين الحقول */
+}
+    .form-group label {
+    width: 250px; /* تحديد عرض ثابت للتسمية */
+    margin-right: 10px; /* مسافة بين التسمية والحقل */
+    font-weight: bold;
+
+}
+    .input-field {
+     flex: 1;/* يجعل الحقول تأخذ كل المساحة المتاحة */
+     width: 100%;
+     max-width: 300px;
+     padding: 8px;
+     margin: 0 6x; /* مسافة بين الحقل وتلميح الحقل */
+     border: 1px solid #ccc;
+     border-radius: 5px;
+     font-size: 1rem;
+     box-sizing: border-box;
+}
+
+.submit-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+.submit-container button {
+    width: 100%;
+    max-width: 200px;
+}
+.btn-submit {
+    width: 100%;
+    max-width: 200px;
+    background-color:  black;
+    color: white;
+    margin-top: 50px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+  background: linear-gradient(135deg, #4a06b0, #510303);
+}
+     .result {
+    font-size: 200px;
+    color: #d9534f;
+    text-align: center;
+    margin-top: 20px;
+    }
+
+
+
+
+
+    
+/* The Modal (hidden by default) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1000; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+  
+  /* Center the modal using Flexbox */
+  display: flex;
+  justify-content: center; /* Horizontally center */
+  align-items: center; /* Vertically center */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #412d2dc3; /* Red background */
+  padding: 20px;
+  margin:10% 35%;
+  
+  border: 1px solid #888;
+  width: 400px; /* Fixed width for a square look */
+  height: 200px; /* Fixed height for a square look */
+  text-align: center;
+  font-size: 3rem; /* Larger font size */
+  color: white; /* White text color for contrast */
+  border-radius: 20px; /* Slight rounding on the corners */
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+  position: relative; /* Needed for the close button */
+}
+
+/* Close Button */
+.close {
+  color: #aaa;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 36px; /* Larger close button */
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* css for the icons section */
+
+html {
+  box-sizing: border-box;
+  background: #f3f3f3;
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: inherit;
+}
+
+.clip {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.svg--source {
+  display: none;
+  width: fit-content;
+  height: fit-content;
+}
+
+.svg--icon {
+  width: 100%;
+  max-width: 5rem;
+  height: 100%;
+  max-height: 5rem;
+  display: block;
+  margin: 0 auto;
+  fill: currentColor;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.share {
+  width: 5rem;
+  height: 5rem;
+  float: left;
+  margin: 0.5rem 1rem 0.5rem 0;
+  color: #353c4a;
+  border: 0.125rem solid #f3f3f3;
+  box-shadow: 0 0 8px 0 rgba(50, 50, 50, 0.15);
+  border-radius: 50%;
+  transition: 250ms;
+}
+.share:last-child {
+  margin-right: 0;
+}
+.share:focus {
+  outline-color: inherit;
+}
+
+.twitter:hover, .twitter:focus {
+  color: #00ACED;
+  box-shadow: 0 0 24px 0 #00ACED;
+}
+
+.github:hover, .github:focus {
+  color: #4183c4;
+  box-shadow: 0 0 24px 0 #4183c4;
+}
+
+.pinterest:hover, .pinterest:focus {
+  color: #bd081c;
+  box-shadow: 0 0 24px 0 #bd081c;
+}
+
+.youtube:hover, .youtube:focus {
+  color: #cd201f;
+  box-shadow: 0 0 24px 0 #cd201f;
+}
+
+.facebook:hover, .facebook:focus {
+  color: #3b5998;
+  box-shadow: 0 0 24px 0 #3b5998;
+}
+
+.google:hover, .google:focus {
+  color: #dd4b39;
+  box-shadow: 0 0 24px 0 #dd4b39;
+}
+
+
+
+

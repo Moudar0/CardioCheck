@@ -1,0 +1,27 @@
+{% load static %} <!-- Load static files -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+    <title>{{ title }}</title> <!-- Dynamically set the page title -->
+</head>
+
+<body class="{{ background }}"> <!-- Dynamically set the body class -->
+
+    {% block content %}
+    
+    {% endblock %} <!-- Content block to be overridden in child templates -->
+
+</body>
+</html>

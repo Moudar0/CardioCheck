@@ -1,0 +1,87 @@
+{% load static %} <!-- Load static files -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" /> 
+
+    <title>Contact</title> 
+    <link rel="stylesheet" href="{% static 'css/styletwo.css' %}" > <!-- Include custom CSS file -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Include jQuery -->  
+    <script src="{% static 'js/javascript.js' %}" ></script>
+
+
+</head>
+<body>
+
+<div class='content'>
+
+<div class="container">
+
+    <div id="container">
+		<div class="navT">
+		  <div class="icon"></div>
+		</div>
+		
+		<div id="menu">
+            <ul>
+                <li><a href="{% url 'home' %}"> Hom<span class="space">e</span></a></li>
+                <li><a href="{% url 'signup' %}">Sign u<span class="space">p</span></a></li>
+                <li><a href="{% url 'login' %}">Log i<span class="space">n</span></a></li>
+                <li><a href="{% url 'heart' %}">CardioCheke<span class="space">r</span></a></li>
+                <li><a href="{% url 'articles' %}">Article<span class="space">s</span></a></li>
+                <li><a href="{% url 'contact' %}">Contac<span class="space">t</span></a></li>
+            </ul>
+		</div>
+         
+    <div class="contact-header">
+        <h1>Contact Us</h1>
+        <p>We'd love to hear from you! Please fill out the form below or contact us using the details provided.</p>
+    </div>
+
+    <div class="contact-section">
+        <!-- Contact Form -->
+        <div class="contact-form">
+            <h2>Send Us a Message</h2>
+            <form action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="759b361a-eb16-4faf-9203-bc616649353b">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" placeholder="Write your message" required></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">Send Message</button>
+            </form>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="contact-info">
+            <h2>Contact Information</h2>
+            <p><i class="fas fa-phone-alt"></i> Phone:  +963 997 739 402</p>
+            <p><i class="fas fa-envelope"></i> Email: modarsuleiman2@gmail.com</p>
+            <p><i class="fas fa-map-marker-alt"></i> Address: 173577 Main Street, Lattakia, Syria</p>
+
+            <!-- Google Maps Embed -->
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354345091774!2d144.95373531520463!3d-37.8162797420219!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf0727ab2c3d4e0b7!2sFlinders%20St%20Station!5e0!3m2!1sen!2sau!4v1600760924909!5m2!1sen!2sau" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+{% load static %} <!-- Load static files -->
+
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Create Account</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"> <!-- Include custom CSS file -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Include jQuery -->
+    
+</head>
+
+<div id="container">
+        <div class="navT">
+            <div class="icon"></div>
+        </div>
+
+        <div id="menu">
+            <ul>
+            <li><a href="{% url 'home' %}"> Hom<span class="space">e</span></a></li>
+            <li><a href="{% url 'signup' %}">Sign u<span class="space">p</span></a></li>
+            <li><a href="{% url 'login' %}">Log i<span class="space">n</span></a></li>
+			<li><a href="{% url 'heart' %}">CardioCheke<span class="space">r</span></a></li>
+            <li><a href="{% url 'articles' %}">Article<span class="space">s</span></a></li>
+            <li><a href="{% url 'contact' %}">Contac<span class="space">t</span></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="content">
+        <div id="first">
+            <h1> </h1>
+            <h3>Login to your  Account:</h3>
+            <h3>
+                {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            
+
+            </h3>
+    <div class="form-container">
+           <form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="id_username">Username:</label>
+        <input type="text" name="username" id="id_username" required>
+        <span class="input-hint"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="id_password1">Password:</label>
+        <input type="password" name="password" id="id_password1" required>
+    </div>
+                <div class="submit-container">
+  <button type="submit" class="btn-submit">Login</button>
+</div>
+    <p>You don't have an account ?<a href="{% url 'signup' %}">Create an account</a>.</p>
+           </form>
+    </div>
+        </div>
+    </div>
+    <script src="{% static 'js/javascript.js' %}"></script>
+</html>

@@ -1,0 +1,61 @@
+{% load static %} <!-- Load static files -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" /> 
+
+    <title>Medical Articles</title>
+    <link rel="stylesheet" href="{% static 'css/styletwo.css' %}" > <!-- Include custom CSS file -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Include jQuery -->  
+    <script src="{% static 'js/javascript.js' %}" ></script>
+
+
+</head>
+<body>
+
+<div class='content'>
+
+
+
+    <div id="container">
+		<div class="navT">
+		  <div class="icon"></div>
+		</div>
+		
+		<div id="menu">
+            <ul>
+                <li><a href="{% url 'home' %}"> Hom<span class="space">e</span></a></li>
+                <li><a href="{% url 'signup' %}">Sign u<span class="space">p</span></a></li>
+                <li><a href="{% url 'login' %}">Log i<span class="space">n</span></a></li>
+                <li><a href="{% url 'heart' %}">CardioCheke<span class="space">r</span></a></li>
+                <li><a href="{% url 'articles' %}">Article<span class="space">s</span></a></li>
+                <li><a href="{% url 'contact' %}">Contac<span class="space">t</span></a></li>
+            </ul>
+		</div>
+         
+</div>
+
+
+<h1>Medical Articles for you {{ user.username }}!</h1>
+
+    {% if articles %}
+        <div class="articles-container">
+            {% for article in articles %}
+                <div class="article-card">
+                    <h2>{{ article.title }}</h2>
+                    <p><strong>Author:</strong> {{ article.author }}</p>
+                    <p>{{ article.description }}</p>
+                    <a href="{{ article.url }}" target="_blank">Read more</a>
+                    <img src="{{ article.urlToImage }}" alt="Article image">
+                    <p><small>Published at: {{ article.publishedAt }}</small></p>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No articles available.</p>
+    {% endif %}
+</body>
+</html>

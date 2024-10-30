@@ -1,0 +1,202 @@
+
+{% extends 'base.html' %} <!-- Extend the 'base.html' template -->
+{% load static %}
+{% block content %} <!-- Define the content block to override -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v={{ timestamp }}"> <!-- Link to your CSS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Include jQuery -->  
+    
+</head>
+
+
+<div id="container">
+    <div class="navT">
+      <div class="icon"></div>
+    </div>
+    
+    <div id="menu">
+        <ul>
+            <li><a href="{% url 'home' %}"> Hom<span class="space">e</span></a></li>
+            <li><a href="{% url 'signup' %}">Sign u<span class="space">p</span></a></li>
+            <li><a href="{% url 'login' %}">Log i<span class="space">n</span></a></li>
+			<li><a href="{% url 'heart' %}">CardioCheke<span class="space">r</span></a></li>
+            <li><a href="{% url 'articles' %}">Article<span class="space">s</span></a></li>
+            <li><a href="{% url 'contact' %}">Contac<span class="space">t</span></a></li>
+		</ul>
+    </div>
+  
+  </div>
+  <div class='content'>
+    <div id="first">
+    <h1></h1>
+    <h3>Check your heart health status by entering the required information in the form below.</h3></div>
+
+    <div class="form-container">
+        <form method="POST" action="{% url 'heart' %}"> <!-- Form to submit user data to 'heart' view -->
+            {% csrf_token %} <!-- Add CSRF token for form submission security -->
+
+             <!-- Custom Age Field -->
+             <div class="form-group">
+                <label for="id_age">Age:</label> <!-- Label on the left -->
+                <input type="number" name="age" id="id_age" class="input-field"
+                       placeholder="Enter age" min="10" max="100" required> <!-- Input in the middle -->
+                <span class="input-hint">(10 - 100)</span> <!-- Range on the right -->
+            </div>
+
+            <!-- Sex Field -->
+            <div class="form-group">
+                <label for="id_sex">Sex:</label>
+                <select required id="id_sex" name="sex" class="input-field">
+                    <option value="" disabled selected>Select Gender</option>
+                    <option value="0">Female</option>
+                    <option value="1">Male</option>
+                </select>
+                <span class="input-hint">(0: Female, 1: Male)</span>
+            </div>
+
+            <!-- Chest Pain Type (CP) -->
+            <div class="form-group">
+                <label for="id_cp">CP:</label>
+                <select required id="id_cp" name="cp" class="input-field">
+                    <option value="" disabled selected>Select CP</option>
+                    <option value="0">Typical Angina</option>
+                    <option value="1">Atypical Angina</option>
+                    <option value="2">Non-Anginal Pain</option>
+                    <option value="3">Asymptomatic</option>
+                </select>
+                <span class="input-hint">Chest Pain Type</span>
+            </div>
+
+            <!-- Resting Blood Pressure -->
+            <div class="form-group">
+                <label for="id_trestbps">TRESTBPS:</label>
+                <input type="number" name="trestbps" id="id_trestbps" class="input-field"
+                       placeholder="Enter Trestbps" min="50" max="250" required>
+                <span class="input-hint">(50 - 250)</span>
+            </div>
+
+            <!-- Cholesterol Level -->
+            <div class="form-group">
+                <label for="id_chol">Cholesterol Level:</label>
+                <input type="number" name="chol" id="id_chol" class="input-field"
+                       placeholder="Enter CHOL" min="100" max="600" required>
+                <span class="input-hint">(100 - 600 mg/dL)</span>
+            </div>
+
+            <!-- Fasting Blood Sugar (FBS) -->
+            <div class="form-group">
+                <label for="id_fbs">Fasting Blood Sugar:</label>
+                <select required id="id_fbs" name="fbs" class="input-field">
+                    <option value="" disabled selected>Select FBS</option>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+                <span class="input-hint">(120>:yes , 120< :No mg/dl)</span>
+            </div>
+<!-- Rest ECG -->
+<div class="form-group">
+	<label for="id_restecg">Rest ECG:</label>
+	<select required id="id_restecg" name="restecg" class="input-field">
+		<option value="" disabled selected>Select ECG</option>
+		<option value="0">Normal</option>
+		<option value="1">ST-T wave abnormality</option>
+		<option value="2">Left ventricular hypertrophy</option>
+	</select>
+	<span class="input-hint">(ECG)</span>
+</div>
+
+<!-- Maximum Heart Rate -->
+<div class="form-group">
+	<label for="id_thalach">Maximum Heart Rate :</label>
+	<input type="number" name="thalach" id="id_thalach" class="input-field"
+		   placeholder="Enter THALACH" min="50" max="250" required>
+	<span class="input-hint">(50 - 250 bpm)</span>
+</div>
+
+<!-- Exercise Induced Angina -->
+<div class="form-group">
+	<label for="id_exang">Exercise Induced Angina:</label>
+	<select required id="id_exang" name="exang" class="input-field">
+		<option value="" disabled selected>Select exang</option>
+		<option value="0">No</option>
+		<option value="1">Yes</option>
+	</select>
+	<span class="input-hint">exang</span>
+</div>
+
+<!-- Oldpeak -->
+<div class="form-group">
+	<label for="id_oldpeak">Oldpeak:</label>
+	<input type="number" name="oldpeak" id="id_oldpeak" class="input-field"
+		   placeholder="Enter ST depression" step="0.1" min="0.0" max="10.0" required>
+	<span class="input-hint">(0.0 - 10.0)</span>
+</div>
+
+<!-- Slope of ST -->
+<div class="form-group">
+	<label for="id_slope">Slope of ST:</label>
+	<select required id="id_slope" name="slope" class="input-field">
+		<option value="" disabled selected>Select Slope</option>
+		<option value="0">Upsloping</option>
+		<option value="1">Flat</option>
+		<option value="2">Downsloping</option>
+	</select>
+	<span class="input-hint">(ST)</span>
+</div>
+
+<!-- Number of Major Vessels -->
+<div class="form-group">
+	<label for="id_ca">Number of Major Vessels:</label>
+	<select required id="id_ca" name="ca" class="input-field">
+		<option value="" disabled selected>Select CA</option>
+		<option value="0">No blocked vessels</option>
+		<option value="1">One damaged vessel</option>
+		<option value="2">Two damaged vessels</option>
+		<option value="3">Three damaged vessels</option>
+	</select>
+	<span class="input-hint">(CA)</span>
+</div>
+
+<!-- Thalassemia -->
+<div class="form-group">
+	<label for="id_thal">Thalassemia:</label>
+	<select required id="id_thal" name="thal" class="input-field">
+		<option value=""disabled selected>Select Thal</option>
+		<option value="0">Normal</option>
+		<option value="1">Fixed Defect</option>
+		<option value="2">Reversible Defect</option>
+	</select>
+	<span class="input-hint">(Thal)</span>
+</div>
+
+<div class="submit-container">
+	<button type="submit" class="btn-submit">Submit</button>
+</div>
+</form>
+</div>
+    <div id="third">
+        <h1><br></h1>
+        <h1></h1>
+        <h2>Made by</h2>
+			<h5>Modar_134224<br><br>Fatema_alzahraa_114718<br><br>Safaa_116845</h5>
+			<br>
+			<h6>Contact us:modarsuleiman2@gmail.com<br></h6>
+    </div>
+    
+    <!-- Modal for displaying the result -->
+<div id="result-modal" class="modal" {% if context %} style="display: block;" {% else %} style="display: none;" {% endif %}>
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>You {{ context }} heart disease.</p>
+    </div>
+</div>
+
+<script src="{% static 'js/javascript.js' %}" ></script>
+
+
+{% endblock %} <!-- End of content block -->
+
